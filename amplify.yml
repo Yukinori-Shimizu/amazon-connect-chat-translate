@@ -10,7 +10,11 @@ frontend:
   phases:
     preBuild:
       commands:
+        - rm -rf node_modules
+        - rm -f package-lock.json
+        - yarn cache clean
         - yarn install
+        - npm install caniuse-lite@latest
     build:
       commands:
         - REACT_APP_CONNECT_REGION=${REACT_APP_CONNECT_REGION}
